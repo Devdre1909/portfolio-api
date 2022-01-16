@@ -36,7 +36,11 @@ app.post("/send/mail", (req, res) => {
       from: process.env.GOOGLE_MAIL,
       to: "adegoketemitope1909@gmail.com",
       subject: `Message from Portfolio - ${name || email}`,
-      text: message,
+      text: `${message}
+      
+        ___________________________
+        Mail from ${email}
+      `,
     })
     .then((data) => {
       return res.status(200).json({
